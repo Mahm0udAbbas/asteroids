@@ -50,12 +50,11 @@ def main():
                 if asteriod.collides_with(shot):
                     log_event("asteroid_shot")
                     asteriod.split()
-                    asteriod.kill()
                     shot.kill()
             
         screen.fill("black")
         
-        for obj  in drawable:
+        for obj in drawable:
             obj.draw(screen)
 
         pygame.display.flip()
