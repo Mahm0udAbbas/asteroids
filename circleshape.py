@@ -1,4 +1,6 @@
 import pygame
+from logger import log_event 
+
 
 
 # Base class for game objects
@@ -16,6 +18,13 @@ class CircleShape(pygame.sprite.Sprite):
         self.velocity = pygame.Vector2(0, 0)
         self.radius = radius
 
+    def collides_with(self, other) -> bool:
+        
+        distance = self.position.distance_to(other.position)
+        if distance > self.radius + other.radius:
+            return False
+        return True
+    
     def draw(self, screen: pygame.Surface) -> None:
         # must override
         pass
